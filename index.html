@@ -6,315 +6,41 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Avinash R C — Portfolio</title>
-  <meta name="description" content="Avinash R C — AI/ML, Data, and Full-Stack portfolio. Building intelligent, production-ready systems." />
-  <meta name="theme-color" content="#0b0f14" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* ------------------------------ Root & Reset ------------------------------ */
-    :root {
-      --bg: #0b0f14;
-      --panel: rgba(255,255,255,0.06);
-      --panel-strong: rgba(255,255,255,0.12);
-      --text: #eaf0f6;
-      --muted: #9fb0c4;
-      --brand-1: #f58867;
-      --brand-2: #f5c55d;
-      --brand-3: #e6c266;
-      --brand-4: #f2be5e;
-      --brand-5: #cc670f;
-      --glow: 0 0 40px rgba(245, 197, 93, 0.25), 0 0 80px rgba(245, 197, 93, 0.12);
-      --radius: 18px;
-      --radius-lg: 26px;
-      --ring: 1px solid rgba(255,255,255,0.08);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      --accent: linear-gradient(120deg, var(--brand-1), var(--brand-2), var(--brand-3), var(--brand-4), var(--brand-5));
-    }
-    [data-theme="light"] {
-      --bg: #f8fafc;
-      --panel: rgba(6,16,28,0.05);
-      --panel-strong: rgba(6,16,28,0.1);
-      --text: #0b1220;
-      --muted: #475569;
-      --shadow: 0 10px 30px rgba(10,20,30,0.08);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: var(--bg);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    section { padding: clamp(64px, 8vw, 120px) 24px; }
-
-    /* ------------------------------ Animated Background ------------------------------ */
-    .gradient-background {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: linear-gradient(300deg, var(--brand-1), var(--brand-2), var(--brand-3), var(--brand-4), var(--brand-5));
-      background-size: 180% 180%;
-      animation: gradient-animation 18s ease infinite;
-      filter: saturate(110%);
-    }
-    @keyframes gradient-animation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Soft noise for texture */
-    .noise {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .06;
-      background-image: url('data:image/svg+xml;utf8,\
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\">\
-      <filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"2\" stitchTiles=\"stitch\"/></filter>\
-      <rect width=\"100%\" height=\"100%\" filter=\"url(%23n)\" opacity=\"0.5\"/>\
-      </svg>');
-      mix-blend-mode: overlay;
-    }
-
-    /* ------------------------------ Header ------------------------------ */
-    .nav {
-      position: sticky; top: 0; backdrop-filter: blur(8px);
-      background: linear-gradient(180deg, rgba(0,0,0,0.25), transparent);
-      border-bottom: var(--ring);
-      z-index: 20;
-    }
-    .nav-inner {
-      max-width: 1180px; margin: 0 auto; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.2px;
-    }
-    .brand-badge {
-      width: 36px; height: 36px; border-radius: 9px; background: var(--accent); box-shadow: var(--glow);
-      display: grid; place-items: center; color: #0a0a0a; font-weight: 900;
-      font-family: "JetBrains Mono", monospace;
-    }
-    .nav-links { display: flex; gap: 16px; align-items: center; }
-    .nav-links a {
-      padding: 8px 12px; border-radius: 12px; transition: 160ms ease;
-      color: var(--muted);
-    }
-    .nav-links a:hover { background: var(--panel); color: var(--text); }
-
-    .theme-btn {
-      border: none; border-radius: 12px; padding: 8px 12px;
-      background: var(--panel); color: var(--text);
-      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-      font-weight: 600; transition: 160ms ease; box-shadow: var(--shadow);
-    }
-    .theme-btn:hover { background: var(--panel-strong); }
-
-    /* ------------------------------ Container helpers ------------------------------ */
-    .wrap { max-width: 1180px; margin: 0 auto; }
-    .grid { display: grid; gap: clamp(18px, 2.5vw, 28px); }
-    .two { grid-template-columns: 1.2fr 1fr; }
-    .three { grid-template-columns: repeat(3, 1fr); }
-    @media (max-width: 960px) { .two, .three { grid-template-columns: 1fr; } }
-
-    /* ------------------------------ Hero ------------------------------ */
-    .hero {
-      padding-top: clamp(42px, 8vh, 92px);
-    }
-    .hero-card {
-      display: grid; gap: 28px; align-items: center;
-      grid-template-columns: 1.3fr .9fr;
-    }
-    @media (max-width: 980px) { .hero-card { grid-template-columns: 1fr; } }
-
-    .panel {
-      background: var(--panel);
-      border: var(--ring);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-    .glass { backdrop-filter: blur(14px) saturate(120%); }
-
-    .title {
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.05; font-weight: 800; letter-spacing: -0.02em;
-    }
-    .title .grad {
-      background: var(--accent);
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent; text-shadow: 0 6px 40px rgba(255,255,255,0.12);
-    }
-    .tagline {
-      font-size: clamp(16px, 2.3vw, 20px);
-      color: var(--muted);
-    }
-    .ai-rotate {
-      display: inline-block;
-      min-width: 7.5ch;
-      color: #111;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: var(--glow);
-      font-weight: 700;
-    }
-
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-    .btn {
-      border: none; cursor: pointer;
-      padding: 12px 16px; border-radius: 14px; font-weight: 700;
-      transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .btn-primary {
-      background: var(--accent); color: #0a0a0a; box-shadow: var(--glow);
-    }
-    .btn-primary:hover { transform: translateY(-1px); }
-    .btn-ghost {
-      background: var(--panel); color: var(--text); border: var(--ring);
-    }
-    .btn-ghost:hover { background: var(--panel-strong); }
-
-    .avatar {
-      width: clamp(220px, 32vw, 320px);
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.15);
-      position: relative;
-      box-shadow: var(--shadow);
-      background: radial-gradient(120% 120% at 20% 20%, rgba(255,255,255,0.35) 0%, transparent 42%) , #0b0f14;
-      display: grid; place-items: center;
-      isolation: isolate;
-    }
-    .avatar::before {
-      content: "";
-      position: absolute; inset: -1px;
-      border-radius: 50%;
-      background: conic-gradient(from 180deg, transparent 0 60deg, rgba(255,255,255,0.08) 60deg 120deg, transparent 120deg 360deg);
-      animation: spin 12s linear infinite;
-      z-index: -1;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .avatar .initials {
-      font-size: clamp(40px, 8vw, 72px); font-weight: 800; color: #fff; letter-spacing: 2px;
-      background: var(--accent); -webkit-background-clip: text; background-clip: text; color: transparent;
-      text-shadow: 0 6px 30px rgba(0,0,0,.25);
-    }
-
-    /* ------------------------------ Section headers ------------------------------ */
-    .section-title {
-      font-size: clamp(22px, 3vw, 28px);
-      margin: 0 0 18px;
-      display: inline-flex; align-items: center; gap: 10px;
-    }
-    .pill {
-      font: inherit;
-      background: var(--panel);
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: var(--ring);
-      color: var(--muted);
-    }
-
-    /* ------------------------------ Skills / Chips ------------------------------ */
-    .chipset { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip {
-      padding: 10px 12px; border-radius: 12px; border: var(--ring);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-weight: 600; letter-spacing: 0.1px;
-      display: inline-flex; align-items: center; gap: 10px;
-      transition: 160ms ease;
-    }
-    .chip:hover { background: var(--panel-strong); transform: translateY(-1px); }
-    .chip small { color: var(--muted); font-weight: 600; }
-
-    /* ------------------------------ Cards (Projects/Education) ------------------------------ */
-    .card {
-      padding: 18px; border-radius: var(--radius);
-      background: var(--panel);
-      border: var(--ring);
-      box-shadow: var(--shadow);
-      transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .card:hover { transform: translateY(-2px); background: var(--panel-strong); }
-    .project-heading {
-      font-weight: 800; font-size: 18px; line-height: 1.2; margin: 0 0 8px;
-    }
-    .project-meta { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-    .project-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-    .kbd { font-family: "JetBrains Mono", monospace; background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 8px; border: var(--ring); color: var(--muted); }
-
-    /* ------------------------------ Footer ------------------------------ */
-    footer {
-      padding: 28px 24px 56px;
-      color: var(--muted);
-      border-top: var(--ring);
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.24));
-    }
-    .socials { display: flex; gap: 12px; flex-wrap: wrap; }
-    .icon-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 10px 12px; border-radius: 12px; border: var(--ring);
-      background: var(--panel); color: var(--text); transition: 160ms ease;
-    }
-    .icon-btn:hover { background: var(--panel-strong); }
-
-    /* ------------------------------ Reveal on Scroll ------------------------------ */
-    .reveal { opacity: 0; transform: translateY(12px); transition: .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ------------------------------ Utilities ------------------------------ */
-    .muted { color: var(--muted); }
-    .spacious { margin-top: clamp(16px, 3vw, 24px); }
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); margin: 26px 0; border-radius: 2px; }
-    .tight { margin-top: 8px; }
-  </style>
+  <meta name="description" content="Avinash R C — AI/ML, Data, and Full-Stack portfolio." />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- animated layers -->
-  <div class="gradient-background"></div>
+  <!-- Animated background -->
+  <div class="bg-gradient"></div>
   <div class="noise"></div>
 
   <!-- Nav -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-badge">AR</div>
-        <span>Avinash&nbsp;R&nbsp;C</span>
-      </div>
+      <a href="#" class="brand">
+        <span class="brand-badge">AR</span>
+        <span class="brand-text">Avinash&nbsp;R&nbsp;C</span>
+      </a>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
-        <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
-          <span id="themeLabel">Dark</span>
-        </button>
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">Dark</button>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="about" class="hero wrap">
-    <div class="hero-card">
-      <div class="panel glass" style="padding: clamp(18px, 3.2vw, 30px);">
-        <h1 class="title">
-          Hey, this is <span class="grad">Avinash</span>…
-        </h1>
+  <main id="about" class="wrap hero">
+    <section class="hero-grid">
+      <article class="panel glass">
+        <h1 class="title">Hey, this is <span class="grad">Avinash</span>…</h1>
         <p class="tagline">
           I build reliable, production-ready systems with
-          <span class="ai-rotate" id="aiRotate">AI/ML</span>,
-          strong engineering, and clean design. Quick learner. Love to code & solve problems.
+          <span class="chip-strong" id="aiRotate">AI/ML</span>, clean engineering, and thoughtful UX.
+          Quick learner. Love to code & solve problems.
         </p>
 
         <div class="cta-row">
@@ -324,44 +50,46 @@
           <a class="btn btn-ghost" href="https://instagram.com/cyber_warrior10?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noreferrer">Instagram</a>
         </div>
 
-        <div class="spacious muted" style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div class="kbd-row">
           <span class="kbd">Agents</span>
-          <span class="kbd">Vector DB</span>
+          <span class="kbd">RAG</span>
           <span class="kbd">MLOps</span>
           <span class="kbd">FastAPI</span>
           <span class="kbd">C++</span>
           <span class="kbd">React</span>
           <span class="kbd">SQL</span>
         </div>
-      </div>
+      </article>
 
-      <div class="panel glass" style="display:grid; place-items:center; padding: 22px;">
+      <aside class="panel glass photo-card">
         <div class="avatar">
-          <!-- If DP.jpg exists, it will show. Otherwise initials appear. -->
-          <img src="DP.jpg" alt="Avinash profile photo" onerror="this.style.display='none'; this.previousElementSibling?.remove();" />
-          <div class="initials">AR</div>
+          <!-- Keep same path; will show initials if image missing -->
+          <img src="./images/DP.jpg" alt="Avinash profile photo" onerror="this.style.display='none';document.getElementById('fallbackInitials').style.display='grid';" />
+          <div id="fallbackInitials" class="initials" style="display:none;">AR</div>
         </div>
-      </div>
-    </div>
-  </section>
+      </aside>
+    </section>
+  </main>
 
   <!-- Skills -->
   <section id="skills" class="wrap">
+    <h2 class="section-title">Skills <span class="pill">Over the years</span></h2>
+
     <div class="grid two">
-      <div class="panel glass reveal" style="padding: 22px;">
-        <h2 class="section-title">Skills <span class="pill">Over the years</span></h2>
+      <article class="panel glass reveal">
+        <h3 class="h3">Core</h3>
         <div class="chipset">
           <div class="chip">Machine Learning <small>Models & Eval</small></div>
-          <div class="chip">Data Analytics <small>Insight to action</small></div>
+          <div class="chip">Data Analytics <small>Insight → Action</small></div>
           <div class="chip">Data Structures & Algorithms <small>Strong</small></div>
-          <div class="chip">AI Agents <small>2025-ready</small></div>
-          <div class="chip">MLOps <small>Prod focus</small></div>
           <div class="chip">System Design <small>Scalable</small></div>
+          <div class="chip">AI Agents <small>Tool-use</small></div>
+          <div class="chip">MLOps <small>Prod focus</small></div>
         </div>
-      </div>
+      </article>
 
-      <div class="panel glass reveal" style="padding: 22px;">
-        <h2 class="section-title">Programming Languages</h2>
+      <article class="panel glass reveal">
+        <h3 class="h3">Programming Languages</h3>
         <div class="chipset">
           <div class="chip">C++</div>
           <div class="chip">Python</div>
@@ -371,13 +99,13 @@
           <div class="chip">SQL</div>
           <div class="chip">Java</div>
         </div>
-      </div>
+      </article>
     </div>
 
     <div class="divider"></div>
 
-    <div class="panel glass reveal" style="padding: 22px;">
-      <h2 class="section-title">Frameworks & Tools</h2>
+    <article class="panel glass reveal">
+      <h3 class="h3">Frameworks & Tools</h3>
       <div class="chipset">
         <div class="chip">ReactJS</div>
         <div class="chip">NodeJS</div>
@@ -387,7 +115,7 @@
         <div class="chip">Git/GitHub</div>
         <div class="chip">Docker</div>
       </div>
-    </div>
+    </article>
   </section>
 
   <!-- Projects -->
@@ -396,8 +124,11 @@
 
     <div class="grid two">
       <article class="card reveal">
-        <h3 class="project-heading">Predictive Analytics for Customer Churn (Telecom)</h3>
-        <div class="project-meta">Machine Learning · Random Forest · F1-score based evaluation</div>
+        <div class="card-head">
+          <div class="dot"></div>
+          <h3 class="project-heading">Predictive Analytics for Customer Churn (Telecom)</h3>
+        </div>
+        <p class="project-meta">Machine Learning · Random Forest · F1 score</p>
         <ul class="muted tight">
           <li>Built a classifier to detect churn from call/data usage patterns over time.</li>
           <li>Achieved <strong>92.54% accuracy</strong> with a <u>Random Forest</u>, evaluated via F1-score.</li>
@@ -408,8 +139,11 @@
       </article>
 
       <article class="card reveal">
-        <h3 class="project-heading">CourseFlow — Full-Stack Course Management</h3>
-        <div class="project-meta">React · Spring Boot · REST APIs · Postman</div>
+        <div class="card-head">
+          <div class="dot"></div>
+          <h3 class="project-heading">CourseFlow — Full-Stack Course Management</h3>
+        </div>
+        <p class="project-meta">React · Spring Boot · REST APIs · Postman</p>
         <ul class="muted tight">
           <li>End-to-end platform for managing courses, users, and enrollments.</li>
           <li>APIs designed & verified with <u>Postman</u>; clean client UX in <u>React</u>.</li>
@@ -420,48 +154,68 @@
       </article>
     </div>
 
-    <!-- Optional AI highlight card -->
-    <div class="spacious card glass reveal">
-      <h3 class="project-heading">AI Systems & Agents — 2025</h3>
-      <div class="project-meta">Agents · Retrieval · Evaluations · Observability</div>
+    <!-- Optional AI highlight -->
+    <article class="card glass reveal">
+      <div class="card-head">
+        <div class="dot"></div>
+        <h3 class="project-heading">AI Systems & Agents — 2025</h3>
+      </div>
+      <p class="project-meta">Agents · Retrieval · Evaluations · Observability</p>
       <p class="muted">
-        I’m focused on shipping reliable AI features: retrieval-augmented generation, structured output, tool-use/agents,
+        Shipping reliable AI features: retrieval-augmented generation, structured output, tool-use/agents,
         latency/quality trade-offs, and evals that mirror user value. If you’re building in this space,
-        I’d love to chat about productizing ideas.
+        let’s talk productization.
       </p>
       <div class="project-actions">
         <a class="btn btn-primary" href="mailto:rcavinash1234@gmail.com">Discuss a project</a>
       </div>
-    </div>
+    </article>
   </section>
 
   <!-- Education -->
   <section id="education" class="wrap">
     <h2 class="section-title">Education</h2>
     <div class="grid three">
-      <div class="card reveal">
-        <strong>SRM Institute of Science & Technology, Ramapuram</strong>
-        <div class="muted">B.Tech — CSE</div>
+      <article class="edu card reveal">
+        <div class="edu-head">
+          <img src="./images/degree.png" alt="Degree icon" width="48" height="48" />
+          <div>
+            <strong>SRM Institute of Science & Technology, Ramapuram</strong>
+            <div class="muted">B.Tech — CSE</div>
+          </div>
+        </div>
         <div class="spacious"><span class="pill">9.42 CGPA</span></div>
-      </div>
-      <div class="card reveal">
-        <strong>GRT Mahalakshmi Vidyalaya, Ashok Nagar</strong>
-        <div class="muted">CS · Physics · Chemistry · Maths · English · French</div>
+      </article>
+
+      <article class="edu card reveal">
+        <div class="edu-head">
+          <img src="./images/12n.png" alt="Class 12 icon" width="48" height="48" />
+          <div>
+            <strong>GRT Mahalakshmi Vidyalaya, Ashok Nagar</strong>
+            <div class="muted">CS · Physics · Chemistry · Maths · English · French</div>
+          </div>
+        </div>
         <div class="spacious"><span class="pill">83.5%</span></div>
-      </div>
-      <div class="card reveal">
-        <strong>Sri Sitaram Vidyalaya</strong>
-        <div class="muted">Science · Mathematics · English · Tamil · Social-Science</div>
+      </article>
+
+      <article class="edu card reveal">
+        <div class="edu-head">
+          <img src="./images/10n.png" alt="Class 10 icon" width="48" height="48" />
+          <div>
+            <strong>Sri Sitaram Vidyalaya</strong>
+            <div class="muted">Science · Mathematics · English · Tamil · Social-Science</div>
+          </div>
+        </div>
         <div class="spacious"><span class="pill">91.2%</span></div>
-      </div>
+      </article>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="wrap grid two" style="align-items:center;">
-      <div class="muted">© <span id="year"></span> Avinash R C — Built with care.</div>
-      <div class="socials" style="justify-content:flex-end;">
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="muted">© <span id="year"></span> Avinash R C</div>
+      <div class="socials">
         <a class="icon-btn" href="mailto:rcavinash1234@gmail.com">Mail</a>
         <a class="icon-btn" href="https://github.com/Avinash300802" target="_blank" rel="noreferrer">GitHub</a>
         <a class="icon-btn" href="https://www.linkedin.com/in/avinash-r-c-378946216/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -470,58 +224,38 @@
     </div>
   </footer>
 
-  <!-- JS: theme, rotate tagline, reveal -->
+  <!-- Minimal JS -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle with localStorage
-    const themeToggle = document.getElementById('themeToggle');
-    const themeLabel = document.getElementById('themeLabel');
+    // Theme toggle
     const root = document.documentElement;
-
-    function applyTheme(t) {
-      if (t === 'light') {
-        root.setAttribute('data-theme', 'light');
-        themeLabel.textContent = 'Light';
-      } else {
-        root.removeAttribute('data-theme');
-        themeLabel.textContent = 'Dark';
-      }
-    }
+    const themeBtn = document.getElementById('themeToggle');
     const saved = localStorage.getItem('theme');
-    applyTheme(saved);
-
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      if (current === 'light') localStorage.setItem('theme', 'light');
-      else localStorage.removeItem('theme');
-      applyTheme(current);
+    if (saved === 'light') root.setAttribute('data-theme','light');
+    themeBtn.textContent = root.getAttribute('data-theme') === 'light' ? 'Light' : 'Dark';
+    themeBtn.addEventListener('click', () => {
+      const light = root.getAttribute('data-theme') === 'light';
+      if (light) { root.removeAttribute('data-theme'); localStorage.removeItem('theme'); themeBtn.textContent = 'Dark'; }
+      else { root.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); themeBtn.textContent = 'Light'; }
     });
 
-    // Rotating AI tags
-    const tags = ['AI/ML', 'Agents', 'RAG', 'MLOps', 'C++ × Python', 'FastAPI', 'Vector DBs'];
-    const rotateEl = document.getElementById('aiRotate');
-    let idx = 0;
+    // Rotating tag
+    const tags = ['AI/ML','Agents','RAG','MLOps','C++ × Python','FastAPI','Vector DBs'];
+    const el = document.getElementById('aiRotate');
+    let i = 0;
     setInterval(() => {
-      idx = (idx + 1) % tags.length;
-      rotateEl.style.opacity = 0;
-      setTimeout(() => {
-        rotateEl.textContent = tags[idx];
-        rotateEl.style.opacity = 1;
-      }, 180);
-    }, 1700);
+      i = (i + 1) % tags.length;
+      el.style.opacity = 0;
+      setTimeout(() => { el.textContent = tags[i]; el.style.opacity = 1; }, 150);
+    }, 1600);
 
     // Reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(n => obs.observe(n));
   </script>
 </body>
 </html>
