@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Avinash R C — Portfolio</title>
+  <title>Portfolio — Placeholder</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
@@ -20,11 +20,12 @@
   <nav class="nav">
     <div class="nav-inner">
       <div class="brand">
-        <div class="brand-badge">AR</div>
-        <span>Avinash R C</span>
+        <div class="brand-badge">PX</div>
+        <span class="brand-text">Portfolio</span>
       </div>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
@@ -32,58 +33,73 @@
     </div>
   </nav>
 
-  <section id="wip" class="wrap">
-  <div class="wip-board">
-    <div class="wip-frame">
-      <div class="wip-topbar">
-        <span class="bolt"></span><span class="bolt"></span><span class="bolt"></span>
-      </div>
-
-      <div class="wip-header">
-        <span class="beacon left"></span>
-        <h2 class="wip-title">Work in Progress</h2>
-        <span class="beacon right"></span>
-      </div>
-
-      <p class="wip-copy">
-        I’m actively refining features, polishing UI details, and shipping improvements. Check back soon!
-      </p>
-
-      <div class="wip-progress" aria-label="Progress">
-        <span class="bar" style="--pct: 65%"></span>
-        <span class="pct">65%</span>
-      </div>
-
-      <div class="wip-subrow">
-        <span class="chip">AI/ML</span>
-        <span class="chip">Agents</span>
-        <span class="chip">MLOps</span>
-        <span class="chip">React</span>
-        <span class="chip">FastAPI</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
   <!-- Hero -->
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="panel glass">
         <h1 class="title">
-          Hi, I’m <span class="grad">Avinash</span>
+          Hello, I’m <span class="grad">Your&nbsp;Name</span>
         </h1>
-        <p class="tagline">Associate Software Engineer | C++ • Python • React • AI</p>
+        <p class="tagline">
+          Role / Title Here — short, crisp intro about what you do, your focus areas, and the kind of problems you love solving.
+        </p>
 
         <div class="cta-row">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          <a href="#projects" class="btn btn-primary">Explore Work</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+
+        <div class="kbd-row">
+          <span class="kbd">C++</span>
+          <span class="kbd">Python</span>
+          <span class="kbd">React</span>
+          <span class="kbd">AI/ML</span>
+          <span class="kbd">APIs</span>
+          <span class="kbd">SQL</span>
         </div>
       </div>
 
-      <div class="photo-card">
+      <div class="photo-card panel glass">
         <div class="avatar">
-          <img src="./images/DP.jpg" alt="Profile Photo" />
+          <!-- Keep same path structure; replace file in ./images/ when ready -->
+          <img src="./images/DP.jpg" alt="Profile placeholder" onerror="this.style.display='none';document.getElementById('phInit').style.display='grid';" />
+          <div id="phInit" class="initials" style="display:none;">PX</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work-In-Progress Board (oscillating) -->
+  <section id="wip" class="wrap">
+    <div class="wip-rig">
+      <div class="rope left"></div>
+      <div class="rope right"></div>
+
+      <div class="wip-board swing">
+        <div class="wip-topbar">
+          <span class="bolt"></span><span class="bolt"></span><span class="bolt"></span>
+        </div>
+
+        <div class="wip-header">
+          <span class="beacon left"></span>
+          <h2 class="wip-title">Work in Progress</h2>
+          <span class="beacon right"></span>
+        </div>
+
+        <p class="wip-copy">
+          This area is currently under construction. New content is being designed and integrated.
+        </p>
+
+        <div class="wip-progress" aria-label="Progress">
+          <span class="bar" style="--pct: 60%"></span>
+          <span class="pct">60%</span>
+        </div>
+
+        <div class="wip-subrow">
+          <span class="chip">Frontend</span>
+          <span class="chip">Backend</span>
+          <span class="chip">Data</span>
+          <span class="chip">UX</span>
         </div>
       </div>
     </div>
@@ -91,11 +107,35 @@
 
   <!-- About -->
   <section id="about" class="wrap">
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title">About</h2>
     <div class="panel">
-      <p>
-        I’m Avinash, an Associate Software Engineer passionate about building scalable backend systems, automation tools, and AI-driven solutions. I enjoy working with modern C++, Python, and React to deliver impactful projects.
-      </p>
+      <p>Short bio/mission statement placeholder. Describe your interests, strengths, and what you’re exploring next.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="wrap">
+    <h2 class="section-title">Skills</h2>
+    <div class="grid two">
+      <div class="panel glass">
+        <h3 class="h3">Core</h3>
+        <div class="chipset">
+          <div class="chip">Problem Solving</div>
+          <div class="chip">System Design</div>
+          <div class="chip">Data Structures</div>
+          <div class="chip">APIs</div>
+        </div>
+      </div>
+      <div class="panel glass">
+        <h3 class="h3">Tech</h3>
+        <div class="chipset">
+          <div class="chip">C++</div>
+          <div class="chip">Python</div>
+          <div class="chip">JavaScript</div>
+          <div class="chip">React</div>
+          <div class="chip">SQL</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -103,45 +143,56 @@
   <section id="projects" class="wrap">
     <h2 class="section-title">Projects</h2>
     <div class="grid two">
-      <div class="card">
-        <div class="card-head">
-          <div class="dot"></div>
-          <h3 class="project-heading">TelEE — Telemetry AI</h3>
-        </div>
-        <p class="project-meta">FastAPI • AI • BigQuery</p>
-        <p>AI-powered telemetry exploration engine for data insights.</p>
-      </div>
+      <article class="card">
+        <div class="card-head"><div class="dot"></div><h3 class="project-heading">Project Title</h3></div>
+        <p class="project-meta">Stack / Area</p>
+        <p class="muted">One or two lines about what the project does and why it matters.</p>
+      </article>
 
-      <div class="card">
-        <div class="card-head">
-          <div class="dot"></div>
-          <h3 class="project-heading">Licensing Automation</h3>
-        </div>
-        <p class="project-meta">C++ • Automation</p>
-        <p>End-to-end automation framework for licensing sign-off.</p>
-      </div>
+      <article class="card">
+        <div class="card-head"><div class="dot"></div><h3 class="project-heading">Another Project</h3></div>
+        <p class="project-meta">Stack / Area</p>
+        <p class="muted">Impact summary. What changed for users or the system?</p>
+      </article>
     </div>
   </section>
 
   <!-- Education -->
   <section id="education" class="wrap">
     <h2 class="section-title">Education</h2>
-    <div class="grid two">
-      <div class="card edu">
+    <div class="grid three">
+      <article class="card edu">
         <div class="edu-head">
-          <img src="./images/degree.png" width="50" alt="Degree Icon">
-          <h3 class="h3">B.E. Computer Science</h3>
+          <img src="./images/degree.png" alt="Degree icon" width="48" height="48" />
+          <div>
+            <strong>Degree / Program</strong>
+            <div class="muted">Institution Name</div>
+          </div>
         </div>
-        <p class="muted">XYZ College — 2024</p>
-      </div>
+        <div class="spacious"><span class="pill">CGPA / Grade</span></div>
+      </article>
 
-      <div class="card edu">
+      <article class="card edu">
         <div class="edu-head">
-          <img src="./images/12n.png" width="50" alt="12th Icon">
-          <h3 class="h3">Higher Secondary</h3>
+          <img src="./images/12n.png" alt="Class 12 icon" width="48" height="48" />
+          <div>
+            <strong>Higher Secondary</strong>
+            <div class="muted">School Name</div>
+          </div>
         </div>
-        <p class="muted">ABC School — 2020</p>
-      </div>
+        <div class="spacious"><span class="pill">%</span></div>
+      </article>
+
+      <article class="card edu">
+        <div class="edu-head">
+          <img src="./images/10n.png" alt="Class 10 icon" width="48" height="48" />
+          <div>
+            <strong>Secondary</strong>
+            <div class="muted">School Name</div>
+          </div>
+        </div>
+        <div class="spacious"><span class="pill">%</span></div>
+      </article>
     </div>
   </section>
 
@@ -149,22 +200,28 @@
   <section id="contact" class="wrap">
     <h2 class="section-title">Contact</h2>
     <div class="panel">
-      <p>Email: <a href="mailto:avinash@example.com">avinash@example.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/avinash">linkedin.com/in/avinash</a></p>
-      <p>GitHub: <a href="https://github.com/avinash">github.com/avinash</a></p>
+      <p>Replace placeholders with your preferred links:</p>
+      <ul class="muted">
+        <li>Mail: <a href="#" onclick="return false;">your@email</a></li>
+        <li>LinkedIn: <a href="#" onclick="return false;">/your-handle</a></li>
+        <li>GitHub: <a href="#" onclick="return false;">/your-handle</a></li>
+      </ul>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="wrap footer-inner">
-      <p class="muted">© 2025 Avinash R C. All Rights Reserved.</p>
-      <div>
-        <a href="https://github.com/avinash" class="icon-btn">GitHub</a>
-        <a href="https://linkedin.com/in/avinash" class="icon-btn">LinkedIn</a>
+      <div class="muted">© <span id="year"></span> Your Name</div>
+      <div class="socials">
+        <a class="icon-btn" href="#about">Top ↑</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
